@@ -78,6 +78,7 @@ const LoginScreen = ({ navigation }) => {
   const onLoginPress = async () => {
     Keyboard.dismiss();
     setLoading(true);
+    console.log("start");
 
     if (
       domainInput.length > 0 &&
