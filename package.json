@@ -7,7 +7,7 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "pretty-quick": "pretty-quick --staged",
+    "run-pretty-quick": "pretty-quick --staged",
     "postinstall": "patch-package",
     "lint": "npx eslint --ext .jsx,.js ./ --fix",
     "test": "npx jest --testEnvironment --passWithNoTests node --colors --coverage --updateSnapshot .",
@@ -40,7 +40,6 @@
     "expo-localization": "~16.1.6",
     "expo-mail-composer": "~14.1.5",
     "expo-notifications": "~0.31.4",
-    "expo-permissions": "~14.2.1",
     "expo-random": "~13.2.0",
     "expo-secure-store": "~14.2.3",
     "expo-splash-screen": "~0.30.10",
@@ -78,12 +77,33 @@
     "redux-persist-expo-filesystem": "^2.0.0",
     "swr": "^2.3.6"
   },
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "react-native-action-button",
+          "react-native-keyboard-aware-scroll-view",
+          "react-native-material-menu",
+          "react-native-mentions",
+          "react-native-parsed-text",
+          "react-native-smooth-pincode-input",
+          "react-native-swipe-list-view",
+          "redux-persist",
+          "deprecated-react-native-prop-types",
+          "expo-random",
+          "moment",
+          "object-hash",
+          "redux-persist-expo-filesystem",
+          "swr"
+        ]
+      }
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-react": "^7.18.6",
     "@types/jest": "^29.2.2",
     "@types/react": "~19.0.10",
-    "@types/react-native": "~0.71.5",
     "@types/react-test-renderer": "^18.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "eslint": "^8.26.0",
