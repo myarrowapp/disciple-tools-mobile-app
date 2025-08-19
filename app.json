@@ -39,7 +39,17 @@
         "projectId": "31c0aa05-d9f5-480a-9baa-2b68234dd801"
       }
     },
-    "plugins": ["expo-localization"],
+    "plugins": [
+      "expo-localization",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "javaVersion": "17"
+          }
+        }
+      ]
+    ],
     "runtimeVersion": {
       "policy": "appVersion"
     }
