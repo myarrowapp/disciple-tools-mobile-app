@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import * as Random from "expo-random";
+import * as Crypto from "expo-crypto";
 
 import {
   setCNonceLogin as _setCNonceLogin,
@@ -43,7 +43,7 @@ const useCNonce = ({
   };
 
   const setCNonce = async (isPinCNonce = false) => {
-    const cnonce = Random.getRandomBytes(256).toString();
+    const cnonce = Crypto.randomUUID();
     const cnonceDT = new Date().toString();
     await setSecureItem(cnonceDTKey, cnonceDT);
     await setSecureItem(cnonceKey, cnonce);
