@@ -3,7 +3,7 @@
     "name": "Arrow App",
     "slug": "arrowApp",
     "platforms": ["ios", "android"],
-    "version": "1.0.4",
+    "version": "1.11.3",
     "orientation": "portrait",
     "owner": "arrow-app",
     "userInterfaceStyle": "automatic",
@@ -24,7 +24,11 @@
     "ios": {
       "bundleIdentifier": "app.myarrow",
       "supportsTablet": true,
-      "buildNumber": "1.0.16"
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSContactsUsageDescription": "This app needs access to your contacts to help you import and manage contact information for your ministry work."
+      }
     },
     "android": {
       "package": "app.myarrow",
