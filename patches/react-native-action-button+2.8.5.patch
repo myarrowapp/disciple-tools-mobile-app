@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-native-action-button/ActionButton.js b/node_modules/react-native-action-button/ActionButton.js
-index b8306c2..28d9eed 100644
+index b8306c2..0a833b2 100644
 --- a/node_modules/react-native-action-button/ActionButton.js
 +++ b/node_modules/react-native-action-button/ActionButton.js
 @@ -7,6 +7,7 @@ import {
@@ -10,7 +10,15 @@ index b8306c2..28d9eed 100644
  import ActionButtonItem from "./ActionButtonItem";
  import {
    shadowStyle,
-@@ -363,7 +364,7 @@ ActionButton.propTypes = {
+@@ -284,6 +285,7 @@ export default class ActionButton extends Component {
+             anim={this.anim}
+             {...this.props}
+             {...ActionButton.props}
++            active={this.state.active}
+             parentSize={this.props.size}
+             btnColor={this.props.btnOutRange}
+             onPress={() => {
+@@ -363,7 +365,7 @@ ActionButton.propTypes = {
    bgColor: PropTypes.string,
    bgOpacity: PropTypes.number,
    buttonColor: PropTypes.string,
