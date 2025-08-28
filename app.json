@@ -34,7 +34,7 @@
       "package": "app.myarrow",
       "googleServicesFile": "./google-services.json",
       "softwareKeyboardLayoutMode": "pan",
-      "versionCode": 8
+      "versionCode": 9
     },
     "description": "",
     "scheme": "tools.disciple.app",
