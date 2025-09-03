@@ -1,10 +1,7 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import React from "react";
 import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 import {
@@ -16,36 +13,24 @@ import {
   UserIcon,
 } from "components/Icon";
 
-import PINScreen from "screens/PINScreen";
-import HomeScreen from "screens/HomeScreen";
-import AllActivityLogsScreen from "screens/AllActivityLogsScreen";
-import ListScreen from "screens/Posts/ListScreen";
-import CreateScreen from "screens/Posts/CreateScreen";
-import ImportContactsScreen from "screens/Posts/ImportContactsScreen";
-import DetailsScreen from "screens/Posts/DetailsScreen";
 //import AttendanceScreen from 'screens/AttendanceScreen';
 //import QuestionnaireScreen from 'screens/Posts/QuestionnaireScreen';
-import CommentsActivityScreen from "screens/Posts/CommentsActivityScreen";
-import MyUserScreen from "screens/MyUserScreen";
-import StorageScreen from "screens/StorageScreen";
-import NotificationsScreen from "screens/NotificationsScreen";
-import MoreScreen from "screens/MoreScreen";
 
-import useI18N from "hooks/use-i18n";
+import PostStack from "./PostStack";
+
 //import useMyUser from "hooks/use-my-user";
 //import useNetwork from "hooks/use-network";
 import useNotifications from "hooks/use-notifications";
 import usePushNotifications from "hooks/use-push-notifications";
 import useTheme from "hooks/use-theme";
 
-import {
-  AppConstants,
-  ScreenConstants,
-  TabScreenConstants,
-  TypeConstants,
-} from "constants";
+import { ScreenConstants, TabScreenConstants, TypeConstants } from "constants";
+import HomeStack from "./HomeStack";
+import MyUserStack from "./MyUserStack";
+import NotificationsStack from "./NotificationsStack";
+import MoreStack from "./MoreStack";
 
-const Stack = createStackNavigator();
+export const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = ({ navigation }) => {
@@ -57,7 +42,6 @@ const TabNavigator = ({ navigation }) => {
   usePushNotifications();
 
   const { isDarkMode, theme } = useTheme();
-  const { i18n, setLocale } = useI18N();
   const { hasNotifications } = useNotifications();
   //const { data: userData } = useMyUser();
   //const { isConnected } = useNetwork();
@@ -74,277 +58,6 @@ const TabNavigator = ({ navigation }) => {
     return;
   }, [userData?.locale]);
   */
-
-  const screenOptions = useMemo(
-    () => ({
-      headerStyle: {
-        backgroundColor: theme.background.primary,
-        shadowColor: "transparent",
-      },
-      headerTintColor: theme.text.primary,
-      headerBackTitleVisible: false,
-      // use modals by default
-      //gestureEnabled: true,
-      //...TransitionPresets.ModalTransition,
-    }),
-    [theme]
-  );
-
-  const PostStack = ({ route }) => {
-    return (
-      <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen
-          name={ScreenConstants.LIST}
-          component={ListScreen}
-          //options={{ headerShown: false }}
-          options={{
-            title: "",
-          }}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.DETAILS}
-          component={DetailsScreen}
-          //options={{ presentation: 'card' }}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.CREATE}
-          component={CreateScreen}
-          //options={{
-          //  ...TransitionPresets.ModalTransition,
-          //}}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.IMPORT}
-          component={ImportContactsScreen}
-          options={{
-            // TODO:better title term
-            title: i18n.t("global.importContact"),
-          }}
-          initialParams={{
-            type: TypeConstants.CONTACT,
-          }}
-        />
-        <Stack.Screen
-          name={ScreenConstants.COMMENTS_ACTIVITY}
-          component={CommentsActivityScreen}
-          //options={{
-          //  title: i18n.t("global.commentsActivity"),
-          //  ...TransitionPresets.ModalTransition,
-          //}}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-      </Stack.Navigator>
-    );
-  };
-
-  const HomeStack = () => {
-    return (
-      <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen name={TabScreenConstants.HOME} component={HomeScreen} />
-        <Stack.Screen
-          name={ScreenConstants.ALL_ACTIVITY_LOGS}
-          component={AllActivityLogsScreen}
-        />
-        <Stack.Screen
-          name={TabScreenConstants.CONTACTS}
-          component={PostStack}
-          initialParams={{
-            type: TypeConstants.CONTACT,
-          }}
-        />
-        <Stack.Screen
-          name={TabScreenConstants.GROUPS}
-          component={PostStack}
-          initialParams={{
-            type: TypeConstants.GROUP,
-          }}
-        />
-      </Stack.Navigator>
-    );
-  };
-
-  const MyUserStack = ({ route }) => {
-    return (
-      <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen
-          name={ScreenConstants.MY_USER}
-          component={MyUserScreen}
-          //options={{
-          //mode: "modal",
-          //cardStyle: {
-          //  backgroundColor:"transparent",
-          //  opacity: 0.99
-          //}
-          //}}
-          options={{
-            title: "",
-          }}
-          initialParams={{
-            type: TypeConstants.MY_USER,
-          }}
-        />
-        <Stack.Screen
-          name={ScreenConstants.COMMENTS_ACTIVITY}
-          component={CommentsActivityScreen}
-          //options={{
-          //  title: i18n.t("global.commentsActivity"),
-          //  ...TransitionPresets.ModalTransition,
-          //}}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.DETAILS}
-          component={DetailsScreen}
-          //options={{ presentation: 'card' }}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.PIN}
-          options={{
-            title: null,
-            //headerBackTitle: i18n.t("global.settings"),
-          }}
-        >
-          {(props) => <PINScreen {...props} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name={ScreenConstants.STORAGE}
-          options={{
-            title: i18n.t("global.storage"),
-          }}
-        >
-          {(props) => <StorageScreen {...props} />}
-        </Stack.Screen>
-      </Stack.Navigator>
-    );
-  };
-
-  const NotificationsStack = useCallback(
-    ({ route }) => {
-      return (
-        <Stack.Navigator screenOptions={screenOptions}>
-          <Stack.Screen
-            name={TabScreenConstants.NOTIFICATIONS}
-            component={NotificationsScreen}
-            options={{
-              title: i18n.t("global.notifications"),
-            }}
-            initialParams={{
-              type: TypeConstants.NOTIFICATION,
-            }}
-          />
-        </Stack.Navigator>
-      );
-    },
-    [i18n, screenOptions]
-  );
-
-  const MoreStack = ({ route }) => {
-    return (
-      <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen
-          name={TabScreenConstants.MORE}
-          component={MoreScreen}
-          options={{
-            title: i18n.t("global.more"),
-          }}
-        />
-        <Stack.Screen
-          name={ScreenConstants.LIST}
-          component={ListScreen}
-          options={{
-            title: "",
-          }}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.DETAILS}
-          component={DetailsScreen}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.CREATE}
-          component={CreateScreen}
-          //options={{
-          //  ...TransitionPresets.ModalTransition,
-          //}}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-        <Stack.Screen
-          name={ScreenConstants.COMMENTS_ACTIVITY}
-          component={CommentsActivityScreen}
-          //options={{
-          //  title: i18n.t("global.commentsActivity"),
-          //  ...TransitionPresets.ModalTransition,
-          //}}
-          initialParams={
-            route?.params
-              ? {
-                  ...route.params,
-                }
-              : null
-          }
-        />
-      </Stack.Navigator>
-    );
-  };
 
   const indicatorStyle = (focused) => {
     if (focused)
