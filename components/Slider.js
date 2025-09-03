@@ -58,7 +58,7 @@ const Slider = ({ value, onValueChange }) => {
         />
         {showSlider && (
           <View style={{ marginLeft: 10 }}>
-            <Text>{sliderDisplayValue}</Text>
+            <Text style={globalStyles.textPrimary}>{sliderDisplayValue}</Text>
           </View>
         )}
       </View>

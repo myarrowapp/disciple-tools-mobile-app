@@ -152,6 +152,9 @@ const globalStyles = ({ theme, isRTL, isIOS }) => ({
   refreshControl: {
     color: theme.placeholder,
   },
+  textPrimary: {
+    color: theme.text.primary,
+  },
 });
 
 const useStyles = (localStyles) => {

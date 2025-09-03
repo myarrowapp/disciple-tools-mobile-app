@@ -13,4 +13,7 @@ export const localStyles = ({ theme, isRTL, isIOS }) => ({
     marginStart: 15,
     minHeight: 50,
   },
+  text: {
+    color: theme.text.primary,
+  },
 });

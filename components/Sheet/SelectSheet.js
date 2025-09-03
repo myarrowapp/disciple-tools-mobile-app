@@ -84,7 +84,7 @@ const SelectSheet = ({
             marginEnd: "auto",
           }}
         >
-          <Text>{label}</Text>
+          <Text style={styles.labelText}>{label}</Text>
         </View>
         {selected && (
           <View style={globalStyles.rowIcon}>

@@ -45,7 +45,7 @@ const LocationsSheet = ({ selectedItems, onChange, modalName }) => {
               marginEnd: "auto",
             }}
           >
-            <Text>{name}</Text>
+            <Text style={styles.text}>{name}</Text>
           </View>
           {selected && (
             <View style={globalStyles.rowIcon}>

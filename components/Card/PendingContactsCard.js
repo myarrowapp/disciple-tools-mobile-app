@@ -122,7 +122,7 @@ const PendingContactsCard = ({ refreshing, onRefresh }) => {
       </View>
       {_contacts?.length > 1 && (
         <View style={styles.etcetera}>
-          <Text>...</Text>
+          <Text style={globalStyles.textPrimary}>...</Text>
         </View>
       )}
     </>

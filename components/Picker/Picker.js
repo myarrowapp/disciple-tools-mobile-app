@@ -14,7 +14,7 @@ const Picker = ({ onOpen, icon, label, style, optionStyle }) => {
       <View style={[globalStyles.rowContainer, styles.container, style]}>
         <View style={[globalStyles.icon, optionStyle]}>{icon}</View>
         <View style={[optionStyle]}>
-          <Text>{label}</Text>
+          <Text style={globalStyles.textPrimary}>{label}</Text>
         </View>
         <CaretIcon />
       </View>

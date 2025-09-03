@@ -54,7 +54,7 @@ const TagsSheet = ({ values, onChange, modalName }) => {
               marginEnd: "auto",
             }}
           >
-            <Text>{item}</Text>
+            <Text style={globalStyles.textPrimary}>{item}</Text>
           </View>
         </View>
       </Pressable>

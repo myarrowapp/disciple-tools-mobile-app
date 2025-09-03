@@ -84,6 +84,7 @@ const Milestones = ({
                 <Text
                   style={[
                     styles.buttonLabel,
+                    globalStyles.textPrimary,
                     selected ? { color: "#fff" } : null,
                   ]}
                 >

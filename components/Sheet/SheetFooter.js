@@ -15,7 +15,7 @@ const SheetFooter = ({ label, renderIcon, onPress }) => {
     <Pressable onPress={onPress}>
       <View style={[globalStyles.rowContainer, styles.container]}>
         <View>{renderIcon}</View>
-        <Text>{label}</Text>
+        <Text style={globalStyles.textPrimary}>{label}</Text>
       </View>
     </Pressable>
   );

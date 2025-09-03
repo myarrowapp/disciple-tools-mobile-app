@@ -131,7 +131,7 @@ const KeySelectFieldEdit = ({
   const renderItem = (item, idx) => (
     <View key={idx} style={styles.container}>
       <View style={styles.statusBorder({ backgroundColor })} />
-      <Text>{item}</Text>
+      <Text style={styles.selectedText}>{item}</Text>
     </View>
   );
 

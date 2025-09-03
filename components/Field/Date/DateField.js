@@ -100,7 +100,7 @@ const DateFieldView = ({ editing, setEditing, locale, value }) => {
   const dateValue = value ? formatDateView({ date: value, locale }) : "";
   return (
     <View style={globalStyles.fieldContainer}>
-      <Text>{dateValue}</Text>
+      <Text style={globalStyles.textPrimary}>{dateValue}</Text>
       {!editing && <EditIcon onPress={() => setEditing(true)} />}
     </View>
   );

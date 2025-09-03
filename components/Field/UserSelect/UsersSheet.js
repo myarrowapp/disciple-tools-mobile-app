@@ -58,7 +58,7 @@ const UsersSheet = ({ id, values, onChange, sharedIDs, modalName }) => {
               marginEnd: "auto",
             }}
           >
-            <Text>
+            <Text style={globalStyles.textPrimary}>
               {name} (#{ID})
             </Text>
           </View>
