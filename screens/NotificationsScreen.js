@@ -73,6 +73,12 @@ const NotificationsScreen = ({ navigation }) => {
   const [items, setItems] = useState();
 
   useEffect(() => {
+    return () => {
+      console.log("unmount notifications screen");
+    };
+  }, []);
+
+  useEffect(() => {
     setItems(notifications);
   }, [hasNotifications, search, filter?.ID]);
 

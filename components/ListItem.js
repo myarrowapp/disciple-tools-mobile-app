@@ -62,7 +62,7 @@ const ListItem = ({
       >
         <View style={styles.start}>{startComponent}</View>
         <View style={styles.label}>
-          <Text>{label}</Text>
+          <Text style={styles.label}>{label}</Text>
         </View>
         <View style={styles.end}>{endComponent}</View>
       </View>
