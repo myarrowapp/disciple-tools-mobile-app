@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -75,17 +75,20 @@ const TabNavigator = ({ navigation }) => {
   }, [userData?.locale]);
   */
 
-  const screenOptions = {
-    headerStyle: {
-      backgroundColor: theme.background.primary,
-      shadowColor: "transparent",
-    },
-    headerTintColor: theme.text.primary,
-    headerBackTitleVisible: false,
-    // use modals by default
-    //gestureEnabled: true,
-    //...TransitionPresets.ModalTransition,
-  };
+  const screenOptions = useMemo(
+    () => ({
+      headerStyle: {
+        backgroundColor: theme.background.primary,
+        shadowColor: "transparent",
+      },
+      headerTintColor: theme.text.primary,
+      headerBackTitleVisible: false,
+      // use modals by default
+      //gestureEnabled: true,
+      //...TransitionPresets.ModalTransition,
+    }),
+    [theme]
+  );
 
   const PostStack = ({ route }) => {
     return (
@@ -255,22 +258,25 @@ const TabNavigator = ({ navigation }) => {
     );
   };
 
-  const NotificationsStack = ({ route }) => {
-    return (
-      <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen
-          name={TabScreenConstants.NOTIFICATIONS}
-          component={NotificationsScreen}
-          options={{
-            title: i18n.t("global.notifications"),
-          }}
-          initialParams={{
-            type: TypeConstants.NOTIFICATION,
-          }}
-        />
-      </Stack.Navigator>
-    );
-  };
+  const NotificationsStack = useCallback(
+    ({ route }) => {
+      return (
+        <Stack.Navigator screenOptions={screenOptions}>
+          <Stack.Screen
+            name={TabScreenConstants.NOTIFICATIONS}
+            component={NotificationsScreen}
+            options={{
+              title: i18n.t("global.notifications"),
+            }}
+            initialParams={{
+              type: TypeConstants.NOTIFICATION,
+            }}
+          />
+        </Stack.Navigator>
+      );
+    },
+    [i18n, screenOptions]
+  );
 
   const MoreStack = ({ route }) => {
     return (
