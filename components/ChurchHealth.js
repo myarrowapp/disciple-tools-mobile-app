@@ -177,7 +177,7 @@ const ChurchHealth = ({ post, selectedItems, onChange }) => {
 
         <View style={styles.baptismMainContainer}>
           <View style={styles.baptismContainer}>
-            <Text>
+            <Text style={globalStyles.textPrimary}>
               {post?.member_count ? post.member_count - baptizedCount : 0}
             </Text>
             <Image
@@ -185,7 +185,7 @@ const ChurchHealth = ({ post, selectedItems, onChange }) => {
               source={baptizeIconChurchHealth}
               style={styles.baptizeIconChurchHealth}
             />
-            <Text>{baptizedCount ?? ""}</Text>
+            <Text style={globalStyles.textPrimary}>{baptizedCount ?? ""}</Text>
           </View>
 
           <View style={{ padding: 5 }}>

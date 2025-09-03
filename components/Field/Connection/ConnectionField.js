@@ -104,12 +104,14 @@ const GroupView = ({ values }) => {
               <View
                 style={[globalStyles.rowContainer, styles.groupCircleCounter]}
               >
-                <Text>{baptizedMemberCount}</Text>
+                <Text style={globalStyles.textPrimary}>
+                  {baptizedMemberCount}
+                </Text>
               </View>
               <View
                 style={[globalStyles.rowContainer, styles.groupCircleCounter]}
               >
-                <Text>{memberCount}</Text>
+                <Text style={globalStyles.textPrimary}>{memberCount}</Text>
               </View>
             </Pressable>
           );

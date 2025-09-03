@@ -105,7 +105,7 @@ const ActivityLogCard = ({ preview, refreshing }) => {
         {sortedGroupedActivityLog.slice(0, preview).map(renderActivityLog)}
       </View>
       <View style={styles.etcetera}>
-        <Text>...</Text>
+        <Text style={globalStyles.textPrimary}>...</Text>
       </View>
     </>
   );

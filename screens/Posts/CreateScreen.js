@@ -294,6 +294,7 @@ const CreateScreen = ({ navigation, route }) => {
     postType,
   });
   if (!postRef?.current) postRef.current = initialPost;
+  console.log("creationFields", creationFields);
 
   return (
     <KeyboardAwareScrollView

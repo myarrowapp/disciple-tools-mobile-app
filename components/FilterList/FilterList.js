@@ -77,7 +77,9 @@ const FilterList = ({
     if (selectedTags.includes(search)) {
       return (
         <View style={styles.center}>
-          <Text>Tag "{search}" is already being used.</Text>
+          <Text style={globalStyles.textPrimary}>
+            Tag "{search}" is already being used.
+          </Text>
         </View>
       );
     } else {

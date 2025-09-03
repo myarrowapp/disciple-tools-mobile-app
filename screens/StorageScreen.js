@@ -34,7 +34,7 @@ const StorageScreen = () => {
   return (
     <View style={globalStyles.screenContainer}>
       <View style={[styles.listItemContainer, { borderTopWidth: 0 }]}>
-        <Text>
+        <Text style={globalStyles.textPrimary}>
           {i18n.t("global.usage")}:{" "}
           <Text style={{ fontWeight: "bold" }}>{sizeOfCache}</Text>
         </Text>

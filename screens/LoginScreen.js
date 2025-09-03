@@ -262,7 +262,7 @@ const LoginScreen = ({ navigation }) => {
           {/* <LanguagePicker /> */}
 
           <View style={{ marginVertical: 15 }}>
-            <Text>
+            <Text style={globalStyles.textPrimary}>
               NOTE- Contact admin at admin@myarrow.app if your account is
               locked.
             </Text>

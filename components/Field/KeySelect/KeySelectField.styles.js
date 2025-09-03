@@ -12,4 +12,7 @@ export const localStyles = ({ theme, isRTL, isIOS }) => ({
     marginEnd: 10,
     backgroundColor,
   }),
+  selectedText: {
+    color: theme.text.primary,
+  },
 });

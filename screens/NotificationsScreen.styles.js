@@ -21,6 +21,9 @@ export const localStyles = ({ theme, isRTL, isIOS }) => ({
     height: "100%",
     justifyContent: "center",
   },
+  title: {
+    color: theme.text.primary,
+  },
   link: {
     color: theme.text.link,
   },

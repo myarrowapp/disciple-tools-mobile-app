@@ -22,6 +22,9 @@ export const localStyles = ({ theme, isRTL }) => ({
     marginStart: 15,
     minHeight: 50,
   },
+  labelText: {
+    color: theme.text.primary,
+  },
   itemText: {
     fontSize: 32,
   },

@@ -8,7 +8,7 @@ export const localStyles = ({ theme, isRTL, isIOS }) => ({
     paddingBottom: 30,
     backgroundColor: theme.mode === ThemeConstants.DARK ? "#707070" : null,
   },
-  bulletTextBold: { fontWeight: "700" },
+  bulletTextBold: { fontWeight: "700", color: theme.text.primary },
   bullet: {
     marginRight: 10,
     marginTop: 4,

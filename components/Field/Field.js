@@ -120,6 +120,7 @@ const Field = ({
     return <DefaultControls />;
   };
 
+  const shouldLog = field.name === "Locations";
   const FieldComponent = () => {
     if (field?.name === FieldNames.INFLUENCE) {
       return (

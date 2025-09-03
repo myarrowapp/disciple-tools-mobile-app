@@ -58,7 +58,7 @@ const ConnectionSheet = ({
           {/* <StatusBorder fields={fields} item={item} /> */}
           {avatar && <Image style={styles.avatar} source={{ uri: avatar }} />}
           <View style={styles.textContainer}>
-            <Text>
+            <Text style={globalStyles.textPrimary}>
               {name || post_title} (#{ID})
             </Text>
           </View>

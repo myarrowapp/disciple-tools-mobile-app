@@ -183,7 +183,9 @@ const NotificationsScreen = ({ navigation }) => {
     const NotificationDetails = () => (
       <View style={globalStyles.columnContainer}>
         <View style={[globalStyles.rowContainer, styles.notificationDetails]}>
-          <Text>{truncate(decode(newNotificationNoteA))}</Text>
+          <Text style={styles.title}>
+            {truncate(decode(newNotificationNoteA))}
+          </Text>
           <Pressable
             onPress={() => {
               const tabScreen = getTabScreenFromType(type);
