@@ -141,7 +141,7 @@ export const filterPosts = ({ posts, query }) => {
        * NOTE: userData is accessed from cache (bc problematic to access it via
        * 'use-my-user' hook from within 'use-list' for some unknown reason)
        */
-      const userData = SWRConfig.default.cache.get(MyUserDataURL);
+      const userData = SWRConfig?.default?.cache?.get(MyUserDataURL);
 
       if (
         key === "assigned_to" &&
