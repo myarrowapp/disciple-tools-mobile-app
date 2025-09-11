@@ -54,7 +54,11 @@
             "kotlinJvmTarget": "17"
           }
         }
-      ]
+      ],
+      "expo-font",
+      "expo-mail-composer",
+      "expo-secure-store",
+      "expo-web-browser"
     ],
     "runtimeVersion": {
       "policy": "appVersion"
