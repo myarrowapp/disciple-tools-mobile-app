@@ -1,7 +1,7 @@
 import { SWRConfig, mutate } from "swr";
 import axios from "services/axios";
 
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 
 import {
   getListURL,
