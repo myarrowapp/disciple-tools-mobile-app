@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useSWRConfig } from "swr";
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 
 import { CacheConstants } from "constants";
 

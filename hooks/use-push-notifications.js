@@ -121,9 +121,9 @@ const usePushNotifications = () => {
       });
 
     return () => {
-      Notifications.removeNotificationSubscription(
-        notificationListener.current
-      );
+      if (notificationListener.current) {
+        notificationListener.current.remove();
+      }
     };
   }, []);
 };
