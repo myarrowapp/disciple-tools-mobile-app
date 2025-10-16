@@ -1,0 +1,10 @@
+diff --git a/node_modules/redux-persist-expo-filesystem/index.js b/node_modules/redux-persist-expo-filesystem/index.js
+index d6ac66f..ab572b7 100644
+--- a/node_modules/redux-persist-expo-filesystem/index.js
++++ b/node_modules/redux-persist-expo-filesystem/index.js
+@@ -1,4 +1,4 @@
+-import * as FileSystem from "expo-file-system";
++import * as FileSystem from "expo-file-system/legacy";
+ 
+ function generateFolderPath() {
+   return FileSystem.documentDirectory + "appData/";
