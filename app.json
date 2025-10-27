@@ -24,7 +24,7 @@
     "ios": {
       "bundleIdentifier": "app.myarrow",
       "supportsTablet": true,
-      "buildNumber": "1",
+      "buildNumber": "2",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "NSContactsUsageDescription": "This app needs access to your contacts to help you import and manage contact information for your ministry work."
