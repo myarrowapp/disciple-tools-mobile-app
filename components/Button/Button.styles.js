@@ -12,6 +12,8 @@ export const localStyles = ({ theme, isRTL, isIOS }) => ({
   text: {
     color: theme.offLight,
     fontSize: 16,
+    flex: 1,
+    textAlign: "center",
   },
   spinner: {
     margin: 20,

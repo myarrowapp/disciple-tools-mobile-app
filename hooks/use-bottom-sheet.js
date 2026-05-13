@@ -150,7 +150,9 @@ export const BottomSheetProvider = ({ children }) => {
         snapPoints={snapPoints}
         onChange={onChange}
         enablePanDownToClose={options?.dismissable === false ? false : true}
-        backdropComponent={options?.modal === false ? null : renderBackdrop}
+        backdropComponent={
+          options?.modal === false || snapIndex < 0 ? null : renderBackdrop
+        }
         footerComponent={renderFooter ?? null}
         backgroundStyle={globalStyles.background}
         keyboardBehavior="extend"
